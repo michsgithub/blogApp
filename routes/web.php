@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 //gets data from categories/add/ page
 Route::get('/categories/add/', function () {
     return view('categories-add', ['page_label_text'=> 'Add Category']);
@@ -26,9 +27,9 @@ Route::get('/categories/add/', function () {
 
 //saves/post categories/add/ input into db Category table
 Route::post('/categories/add/', function (Request $request) {
-    $cat = new Category; //creating a new instance of category model
-    $cat->name = $request->nameA;  
-    $cat->save();
+    $newCategory = new Category; //creating a new instance of category model
+    $newCategory->name = $request->nameA;  
+    $newCategory->save();
     return redirect('categories');
 });
 
@@ -40,7 +41,7 @@ Route::get('/categories/', function () {
 
 //gets data from plans/add/ page
 Route::get('/plans/add/', function () {
-    $categories = App\Category::all(); 
+    $categories = App\Category::all(); //this only gets all from category?
     return view('plans-add', ['title'=> 'Add A Plan','categories'=>$categories]);
 });
 
@@ -54,7 +55,7 @@ Route::post('/plans/add/', function (Request $request) {
     return redirect('plans');
 });
 
-//gets all plans from plans table and displays them
+//gets all plans from plans table, join category table and displays them
 Route::get('/plans/', function () {
     $plans = DB::table('plans')
             ->join('category', 'plans.category_id', '=', 'category.id')
@@ -63,6 +64,7 @@ Route::get('/plans/', function () {
     return view('plans', ['title'=>'All Plans', 'plans'=>$plans]);
 });
 
+//deleting a plan
 Route::get('/plans/delete/{planid}', function ($planid) {
     $thePlan = App\plans::where('id', $planid)->first();
     $thePlan->delete();

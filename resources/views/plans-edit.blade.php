@@ -15,16 +15,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h1>{{ $title }}</h1>
-                        <form action="/posts/edit/{{ $thePost->id }}" method="POST">
+                        <form action="/posts/edit/{{ $thePlan->id }}" method="POST">
                             {{ csrf_field() }} <!-- needs this because broswer session stops. This generate a security token each time the app is run -->
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" value="{{ $thePost->title }}">
+                                <input type="text" name="title" class="form-control" id="title" value="Test{{ $thePlan->subjects }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="body">Descriptions</label>
-                                <textarea name="descriptions" class="form-control" rows="10" cols="50" id="descriptions">{{ $thePost->body }}</textarea>
+                                <textarea name="descriptions" class="form-control" rows="10" cols="50" id="descriptions">{{ $thePlan->descriptions }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="category_id">Category</label>

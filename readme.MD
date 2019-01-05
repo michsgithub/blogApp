@@ -18,6 +18,8 @@ This app allows users to create their healthy lifestyle plans, i.e. food choices
 
 Users should sign up and log in to their account before planning.
 
+Use Calender API to set get dates for the planning
+
 #technocal aspects:
 
 The app is created with MVC framework using PHP Laravel and MySql.
@@ -34,7 +36,7 @@ Two data models created are
 
 #Dir Structure:
 
-Model: app/Post.php
+Model: app/Plans.php
 
 Model: app/Category.php
 

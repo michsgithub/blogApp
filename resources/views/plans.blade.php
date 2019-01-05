@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Blog App</title>
+        <!--us asset method to include bootstrap.css file. This will result in absolute path for the file -->
         <link href="{{ asset('css/bootstrap.css') }}"  rel="stylesheet" type="text/css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -29,14 +30,14 @@
                             </tr>
                             @foreach ($plans as $plan)
                             <tr>
-                                <td>{{ $plans->id }}</td>
-                                <td>{{ $plans->subjects }}</td>
-                                <td>{{ $plans->descriptions }}</td>
-                                <td>{{ $plans->category_name }}</td>
-                                <td>{{ $plans->created_at }}</td>
-                                <td>{{ $plans->updated_at }}</td>
-                                <td> <a href="/plans/edit/{{ $plans->id }}" class="btn btn-primary">edit</a></td>
-                                <td> <a href="/plans/delete/{{ $plans->id }}" class="btn btn-primary">delete</a></td>
+                                <td>{{ $plan->id }}</td>
+                                <td>{{ $plan->subjects }}</td>
+                                <td>{{ $plan->descriptions }}</td>
+                                <td>{{ $plan->category_name }}</td>
+                                <td>{{ $plan->created_at }}</td>
+                                <td>{{ $plan->updated_at }}</td>
+                                <td> <a href="/plans/edit/{{ $plan->id }}" class="btn btn-primary">edit</a></td>
+                                <td> <a href="/plans/delete/{{ $plan->id }}" class="btn btn-primary">delete</a></td>
                             </tr>
                             @endforeach
                         </table>
